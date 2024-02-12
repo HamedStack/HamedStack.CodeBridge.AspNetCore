@@ -16,7 +16,9 @@
 	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
-
+  <ItemGroup>
+      <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NSwag.CodeGeneration.TypeScript" Version="14.0.3" />
     <PackageReference Include="TypeGen" Version="5.0.1" />
