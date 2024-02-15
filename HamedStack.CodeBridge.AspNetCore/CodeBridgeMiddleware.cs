@@ -44,7 +44,31 @@ public class CodeBridgeMiddleware
 
         var result = TypeGenUtility.Generate(Assembly.GetEntryAssembly()!, new GeneratorOptions()
         {
-            TypeBlacklist = GeneratorOptions.DefaultTypeBlacklist.Union(blacklists).ToHashSet()
+            TypeBlacklist = configureOption.Value.TypeBlacklist.Union(blacklists).ToHashSet(),
+            CreateIndexFile = configureOption.Value.CreateIndexFile,
+            CsAllowNullsForAllTypes = configureOption.Value.CsAllowNullsForAllTypes,
+            CsDefaultValuesForConstantsOnly = configureOption.Value.CsDefaultValuesForConstantsOnly,
+            CsNullableTranslation = configureOption.Value.CsNullableTranslation,
+            DefaultValuesForTypes = configureOption.Value.DefaultValuesForTypes,
+            CustomTypeMappings = configureOption.Value.CustomTypeMappings,
+            EnumStringInitializers = configureOption.Value.EnumStringInitializers,
+            EnumStringInitializersConverters = configureOption.Value.EnumStringInitializersConverters,
+            EnumValueNameConverters = configureOption.Value.EnumValueNameConverters,
+            ExplicitPublicAccessor = configureOption.Value.ExplicitPublicAccessor,
+            ExportTypesAsInterfacesByDefault = configureOption.Value.ExportTypesAsInterfacesByDefault,
+            FileHeading = configureOption.Value.FileHeading,
+            FileNameConverters = configureOption.Value.FileNameConverters,
+            IndexFileExtension = configureOption.Value.IndexFileExtension,
+            PropertyNameConverters = configureOption.Value.PropertyNameConverters,
+            SingleQuotes = configureOption.Value.SingleQuotes,
+            TabLength = configureOption.Value.TabLength,
+            TypeNameConverters = configureOption.Value.TypeNameConverters,
+            TypeScriptFileExtension = configureOption.Value.TypeScriptFileExtension,
+            TypeUnionsForTypes = configureOption.Value.TypeUnionsForTypes,
+            UseDefaultExport = configureOption.Value.UseDefaultExport,
+            UseImportType = configureOption.Value.UseImportType,
+            UseTabCharacter = configureOption.Value.UseTabCharacter
+            
         });
         context.Response.ContentType = configureOption.Value.ContentType;
         context.Response.StatusCode = StatusCodes.Status200OK;
