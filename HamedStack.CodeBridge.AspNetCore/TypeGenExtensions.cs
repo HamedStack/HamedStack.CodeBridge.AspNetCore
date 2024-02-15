@@ -7,7 +7,8 @@ namespace HamedStack.CodeBridge.AspNetCore
     {
         public static string Generate(Assembly assembly, GeneratorOptions? options = default)
         {
-            var baseDir = Path.Combine(Directory.GetCurrentDirectory(), "Generated");
+            var dirName = $"_{Guid.NewGuid():N}_";
+            var baseDir = Path.Combine(Directory.GetCurrentDirectory(), dirName);
             var directory = new DirectoryInfo(baseDir);
             var generator = new Generator
             {
